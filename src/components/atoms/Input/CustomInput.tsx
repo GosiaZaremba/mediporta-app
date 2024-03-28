@@ -18,6 +18,7 @@ export const CustomInput: React.FC<Props> = ({ inputLabel, inputKey }) => {
     const newValue = Number(event.target.value);
     dispatch(setNumber({ key: inputKey, value: newValue }));
   };
+
   return (
     <div>
       <Input

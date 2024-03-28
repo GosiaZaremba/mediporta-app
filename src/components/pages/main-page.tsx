@@ -15,11 +15,11 @@ export const SomeComponent: React.FC = () => {
   );
 
   if (loading) {
-    return <p>Ładowanie...</p>;
+    return <p>Loading...</p>;
   }
 
   if (error) {
-    return <p>Błąd: {error}</p>;
+    return <p>Error: {error}</p>;
   }
 
   return (
