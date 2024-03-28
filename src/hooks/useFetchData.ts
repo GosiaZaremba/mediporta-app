@@ -17,22 +17,32 @@ const useFetchData = <T>(
   const [data, setData] = useState<T[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const apiUrl = `https://api.stackexchange.com/2.3/tags?page=${pageNumber}&pagesize=${pageSize}&order=desc&sort=popular&site=stackoverflow&filter=!*MO(WDa3IX4kJzaW`;
+  const apiUrl = `https://api.stackexchange.com/2.3/tags`;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<ApiResponse<T>>(apiUrl);
+        const response = await axios.get<ApiResponse<T>>(apiUrl, {
+          params: {
+            page: pageNumber,
+            pagesize: pageSize,
+            order: "desc",
+            sort: "popular",
+            site: "stackoverflow",
+            filter: "!21k7qaosV)V8y5XPlOTbl",
+          },
+        });
         setData(response.data.items);
         setLoading(false);
-      } catch (err) {
-        setError("Błąd podczas pobierania danych");
+      } catch (err: any) {
+        const errorMessage = err.response.data.error_message;
+        setError(errorMessage);
         setLoading(false);
       }
     };
 
     fetchData();
-  }, [pageSize, apiUrl]);
+  }, [pageNumber, pageSize, apiUrl]);
 
   return { data, loading, error };
 };
