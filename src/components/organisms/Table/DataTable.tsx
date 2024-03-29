@@ -23,7 +23,7 @@ export const DataTable: React.FC<Props> = ({ data }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data?.map((tag: Tag, index: number) => (
+          {data?.map((tag: Tag) => (
             <TableRow key={tag.name}>
               <TableCell>{tag.name}</TableCell>
               <TableCell>{tag.count}</TableCell>
