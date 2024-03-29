@@ -6,11 +6,10 @@ import { setNumber } from "../../../store/numberSlice";
 import { useAppSelector } from "../../../hooks/storeHooks";
 
 export type Props = {
-  inputLabel: string;
   inputKey: "pageNumber" | "pageSize";
 };
 
-export const CustomInput: React.FC<Props> = ({ inputLabel, inputKey }) => {
+export const CustomInput: React.FC<Props> = ({ inputKey }) => {
   const dispatch = useDispatch();
   const value = useAppSelector((state) => state.numbers[inputKey]);
 
@@ -22,7 +21,7 @@ export const CustomInput: React.FC<Props> = ({ inputLabel, inputKey }) => {
   return (
     <div>
       <Input
-        placeholder={inputLabel}
+        name={inputKey}
         color="secondary"
         type="number"
         value={value}
