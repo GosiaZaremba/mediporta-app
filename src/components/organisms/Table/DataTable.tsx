@@ -5,30 +5,20 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Tag } from "../../../hooks/useFetchData";
-import { SortingIcon } from "../../atoms/SortingIcon/SortingIcon";
+import { TableHeaderCell } from "../TableHeaderCell/TableHeaderCell";
 
 export type Props = {
   data: Tag[] | null;
 };
 
 export const DataTable: React.FC<Props> = ({ data }) => {
-  const onClickIcon = () => {
-    console.log("click");
-  };
-
   return (
     <div>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>
-              Tag name
-              <SortingIcon onClick={onClickIcon} />
-            </TableCell>
-            <TableCell>
-              Tag count
-              <SortingIcon onClick={onClickIcon} />
-            </TableCell>
+            <TableHeaderCell cellName="Tag name" cellFunction="name" />
+            <TableHeaderCell cellName="Tag count" cellFunction="popular" />
           </TableRow>
         </TableHead>
         <TableBody>

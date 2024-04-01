@@ -1,7 +1,7 @@
 import React from "react";
 import useFetchData, { Tag } from "../../hooks/useFetchData";
 import { useAppSelector } from "../../hooks/storeHooks";
-import { MainPageTemplate } from "../templates/MainPageTepmplate/NainPageTemplate";
+import { MainPageTemplate } from "../templates/MainPageTepmplate/MainPageTemplate";
 
 export const SomeComponent: React.FC = () => {
   const urlParams = useAppSelector((state) => state.URLparams);

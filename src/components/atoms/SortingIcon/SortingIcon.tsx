@@ -1,19 +1,24 @@
 import React from "react";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
+import { useDispatch } from "react-redux";
+import { setNumber, setOrder } from "../../../store/numberSlice";
+import "./SortingIcon.css";
 
 export type Props = {
-  ascending?: boolean;
-  onClick: () => void;
+  order?: "desc" | "asc";
 };
 
-export const SortingIcon: React.FC<Props> = ({ ascending, onClick }) => {
-  ascending = false;
-  console.log(ascending);
+export const SortingIcon: React.FC<Props> = ({ order }) => {
+  const dispatch = useDispatch();
 
-  return { ascending } ? (
-    <ArrowUpwardOutlinedIcon onClick={onClick} />
+  const onClickOrderIcon = (ord: "desc" | "asc") => {
+    dispatch(setOrder(ord));
+    dispatch(setNumber({ key: "pageNumber", value: 1 }));
+  };
+  return order === "desc" ? (
+    <ArrowDownwardOutlinedIcon onClick={() => onClickOrderIcon("asc")} />
   ) : (
-    <ArrowDownwardOutlinedIcon onClick={onClick} />
+    <ArrowUpwardOutlinedIcon onClick={() => onClickOrderIcon("desc")} />
   );
 };
