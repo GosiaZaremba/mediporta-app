@@ -11,7 +11,7 @@ export type Props = {
 
 export const CustomInput: React.FC<Props> = ({ inputKey }) => {
   const dispatch = useDispatch();
-  const value = useAppSelector((state) => state.numbers[inputKey]);
+  const value = useAppSelector((state) => state.URLparams[inputKey]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = Number(event.target.value);

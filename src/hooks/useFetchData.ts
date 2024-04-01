@@ -12,7 +12,9 @@ export interface Tag {
 
 const useFetchData = <T>(
   pageNumber: string,
-  pageSize: string
+  pageSize: string,
+  order: "asc" | "desc",
+  sortBy: "name" | "popular"
 ): { data: T[] | null; loading: boolean; error: string | null } => {
   const [data, setData] = useState<T[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -26,8 +28,8 @@ const useFetchData = <T>(
           params: {
             page: pageNumber,
             pagesize: pageSize,
-            order: "desc",
-            sort: "popular",
+            order: order,
+            sort: sortBy,
             site: "stackoverflow",
             filter: "!21k7qaosV)V8y5XPlOTbl",
           },
@@ -42,7 +44,7 @@ const useFetchData = <T>(
     };
 
     fetchData();
-  }, [pageNumber, pageSize, apiUrl]);
+  }, [pageNumber, pageSize, order, sortBy, apiUrl]);
 
   return { data, loading, error };
 };
