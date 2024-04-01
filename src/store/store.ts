@@ -3,7 +3,7 @@ import numberReducer from "./numberSlice";
 
 export const store = configureStore({
   reducer: {
-    numbers: numberReducer,
+    URLparams: numberReducer,
   },
 });
 

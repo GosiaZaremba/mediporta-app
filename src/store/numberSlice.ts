@@ -1,17 +1,21 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface NumberState {
+interface ULRState {
   pageNumber: number;
   pageSize: number;
+  order: "asc" | "desc";
+  sortBy: "name" | "popular";
 }
 
-const initialState: NumberState = {
+const initialState: ULRState = {
   pageNumber: 1,
   pageSize: 10,
+  order: "desc",
+  sortBy: "popular",
 };
 
 export const numberSlice = createSlice({
-  name: "numbers",
+  name: "URL params",
   initialState,
   reducers: {
     setNumber: (
@@ -29,9 +33,15 @@ export const numberSlice = createSlice({
         }
       }
     },
+    setOrder: (state, action: PayloadAction<"asc" | "desc">) => {
+      state.order = action.payload;
+    },
+    setSortBy: (state, action: PayloadAction<"name" | "popular">) => {
+      state.sortBy = action.payload;
+    },
   },
 });
 
-export const { setNumber } = numberSlice.actions;
+export const { setNumber, setOrder, setSortBy } = numberSlice.actions;
 
 export default numberSlice.reducer;

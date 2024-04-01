@@ -4,14 +4,17 @@ import { useAppSelector } from "../../hooks/storeHooks";
 import { MainPageTemplate } from "../templates/MainPageTepmplate/MainPageTemplate";
 
 export const SomeComponent: React.FC = () => {
-  const numbers = useAppSelector((state) => state.numbers);
+  const urlParams = useAppSelector((state) => state.URLparams);
+
   const {
     data: tags,
     loading,
     error,
   } = useFetchData<Tag>(
-    numbers.pageNumber.toString(),
-    numbers.pageSize.toString()
+    urlParams.pageNumber.toString(),
+    urlParams.pageSize.toString(),
+    urlParams.order,
+    urlParams.sortBy
   );
 
   if (loading) {
