@@ -5,6 +5,7 @@ import { MainPageTemplate } from "../templates/MainPageTepmplate/MainPageTemplat
 
 export const SomeComponent: React.FC = () => {
   const urlParams = useAppSelector((state) => state.URLparams);
+
   const {
     data: tags,
     loading,
