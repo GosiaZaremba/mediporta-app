@@ -38,8 +38,8 @@ export const DataTable: React.FC<Props> = ({ data }) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeaderCell cellName="Tag name" cellFunction="name" />
-            <TableHeaderCell cellName="Tag count" cellFunction="popular" />
+            <TableHeaderCell cellName="Tag Name" cellFunction="name" />
+            <TableHeaderCell cellName="Tag Count" cellFunction="popular" />
           </TableRow>
         </TableHead>
         <TableBody>

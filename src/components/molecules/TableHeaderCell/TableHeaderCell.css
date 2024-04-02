@@ -4,7 +4,7 @@ th.MuiTableCell-head {
   border: none;
 }
 
-th.MuiTableCell-root:hover {
+th.MuiTableCell-root span:first-child:hover {
   cursor: pointer;
 }
 
