@@ -1,5 +1,5 @@
 import React from "react";
-import { MainPage } from "./components/pages/MainPage";
+import { MainPage } from "./components/pages/MainPage/MainPage";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { theme } from "./themes/theme";
 
