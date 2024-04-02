@@ -15,12 +15,13 @@ export type CustomInputReference = {
 export type Props = {
   inputKey: "pageNumber" | "pageSize";
   error: boolean;
+  onChange: () => void;
 };
 
 export const CustomInputWithReference: React.ForwardRefRenderFunction<
   CustomInputReference,
   Props
-> = ({ inputKey, error }, ref) => {
+> = ({ inputKey, error, onChange }, ref) => {
   const urlParams = useAppSelector((state) => state.URLparams);
 
   const inputReference = useRef<HTMLInputElement | null>(null);
@@ -44,6 +45,7 @@ export const CustomInputWithReference: React.ForwardRefRenderFunction<
       type="number"
       inputRef={inputReference}
       defaultValue={urlParams[inputKey]}
+      onChange={onChange}
       error={error}
     />
   );
