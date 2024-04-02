@@ -50,18 +50,15 @@ export const DataTable: React.FC<Props> = ({ data }) => {
             </TableRow>
           ))}
           <TableRow>
-            {" "}
-            <TableCell></TableCell>
             <TablePagination
-              component="div"
-              count={10 * 25}
+              count={urlParams.pageSize * 25}
               onPageChange={onPageChange}
               page={urlParams.pageNumber - 1}
               rowsPerPage={urlParams.pageSize}
               rowsPerPageOptions={[]}
             />
           </TableRow>
-        </TableBody>{" "}
+        </TableBody>
       </Table>
     </>
   );

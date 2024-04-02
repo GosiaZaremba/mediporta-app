@@ -13,12 +13,13 @@ export type InputLabelReference = {
 export type Props = {
   inputLabel: string;
   inputKey: "pageNumber" | "pageSize";
+  error: boolean;
 };
 
 export const InputLabelWithReference: React.ForwardRefRenderFunction<
   InputLabelReference,
   Props
-> = ({ inputLabel, inputKey }, ref) => {
+> = ({ inputLabel, inputKey, error }, ref) => {
   const inputReference = useRef<CustomInputReference>(null);
 
   useImperativeHandle(ref, () => ({
@@ -30,7 +31,7 @@ export const InputLabelWithReference: React.ForwardRefRenderFunction<
     <>
       <CustomLabel inputLabel={inputLabel} inputKey={inputKey} />
       <div className="input">
-        <CustomInput inputKey={inputKey} ref={inputReference} />
+        <CustomInput inputKey={inputKey} ref={inputReference} error={error} />
       </div>
     </>
   );
