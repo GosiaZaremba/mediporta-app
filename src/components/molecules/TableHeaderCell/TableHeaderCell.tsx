@@ -28,7 +28,12 @@ export const TableHeaderCell: React.FC<Props> = ({
   return (
     <TableCell>
       <div>
-        <span onClick={onClickTableCell}>{cellName}</span>
+        <span
+          onClick={onClickTableCell}
+          className={arrowAppear ? "underline" : ""}
+        >
+          {cellName}
+        </span>
         <span className="icon">
           {arrowAppear && <SortingIcon order={urlParams.order} />}
         </span>
