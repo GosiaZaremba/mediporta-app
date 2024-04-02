@@ -1,4 +1,18 @@
-.inputs-container {
-  width: 30%;
+.main-page {
+  max-width: 800px;
   margin: 0 auto;
+}
+
+.input-container {
+  width: 35%;
+  margin: 0;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+h1 {
+  text-align: center;
 }

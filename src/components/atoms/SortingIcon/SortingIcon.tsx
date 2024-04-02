@@ -17,8 +17,14 @@ export const SortingIcon: React.FC<Props> = ({ order }) => {
     dispatch(setNumber({ key: "pageNumber", value: 1 }));
   };
   return order === "desc" ? (
-    <ArrowDownwardOutlinedIcon onClick={() => onClickOrderIcon("asc")} />
+    <ArrowDownwardOutlinedIcon
+      onClick={() => onClickOrderIcon("asc")}
+      color="secondary"
+    />
   ) : (
-    <ArrowUpwardOutlinedIcon onClick={() => onClickOrderIcon("desc")} />
+    <ArrowUpwardOutlinedIcon
+      onClick={() => onClickOrderIcon("desc")}
+      color="primary"
+    />
   );
 };

@@ -27,10 +27,12 @@ export const InputLabelWithReference: React.ForwardRefRenderFunction<
     },
   }));
   return (
-    <div className="input-label-container">
+    <>
       <CustomLabel inputLabel={inputLabel} inputKey={inputKey} />
-      <CustomInput inputKey={inputKey} ref={inputReference} />
-    </div>
+      <div className="input">
+        <CustomInput inputKey={inputKey} ref={inputReference} />
+      </div>
+    </>
   );
 };
 

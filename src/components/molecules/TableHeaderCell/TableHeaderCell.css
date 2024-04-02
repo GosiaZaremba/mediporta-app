@@ -1,0 +1,19 @@
+th.MuiTableCell-head {
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+}
+
+th.MuiTableCell-root:hover {
+  cursor: pointer;
+}
+
+th.MuiTableCell-head div {
+  display: flex;
+}
+
+span.icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+}

@@ -8,6 +8,7 @@ import {
 import "./MainPageTemplate.css";
 import { useDispatch } from "react-redux";
 import { setNumber } from "../../../store/numberSlice";
+import Button from "@mui/material/Button";
 
 export type Props = {
   data: Tag[] | null;
@@ -27,16 +28,19 @@ export const MainPageTemplate: React.FC<Props> = ({ data }) => {
     );
   };
   return (
-    <>
-      <div className="inputs-container">
+    <div className="main-page">
+      <h1>StackOverflow Tags</h1>
+      <div className="input-container">
         <InputWLabel
           inputLabel="Page size"
           inputKey="pageSize"
           ref={pagesizeInputRef}
         />
-        <button onClick={getValues}>Go!</button>
+        <Button onClick={getValues} variant="contained" color="primary">
+          Go!
+        </Button>
       </div>
       <DataTable data={data} />
-    </>
+    </div>
   );
 };

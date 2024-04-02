@@ -37,15 +37,13 @@ export const CustomInputWithReference: React.ForwardRefRenderFunction<
   }));
 
   return (
-    <div>
-      <Input
-        name={inputKey}
-        color="secondary"
-        type="number"
-        inputRef={inputReference}
-        defaultValue={urlParams[inputKey]}
-      />
-    </div>
+    <Input
+      name={inputKey}
+      color="secondary"
+      type="number"
+      inputRef={inputReference}
+      defaultValue={urlParams[inputKey]}
+    />
   );
 };
 

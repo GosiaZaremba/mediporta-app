@@ -3,7 +3,7 @@ import useFetchData, { Tag } from "../../hooks/useFetchData";
 import { useAppSelector } from "../../hooks/storeHooks";
 import { MainPageTemplate } from "../templates/MainPageTepmplate/MainPageTemplate";
 
-export const SomeComponent: React.FC = () => {
+export const MainPage: React.FC = () => {
   const urlParams = useAppSelector((state) => state.URLparams);
 
   const {
