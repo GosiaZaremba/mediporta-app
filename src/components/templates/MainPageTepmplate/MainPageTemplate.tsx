@@ -8,7 +8,6 @@ import {
 import "./MainPageTemplate.css";
 import { useDispatch } from "react-redux";
 import { setNumber } from "../../../store/numberSlice";
-import Button from "@mui/material/Button";
 import { CustomSnackBar } from "../../atoms/CustomSnackBar/CustomSnackBar";
 
 export type Props = {
@@ -17,14 +16,20 @@ export type Props = {
 
 export const MainPageTemplate: React.FC<Props> = ({ data }) => {
   const dispatch = useDispatch();
-
   const [error, setError] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   const pagesizeInputRef = useRef<InputLabelReference>(null);
 
   const getValues = () => {
     const newPageSize = parseInt(pagesizeInputRef.current?.getValue()!);
-    if (newPageSize <= 100) {
+    if (newPageSize <= 0) {
+      setError(true);
+      setErrorMsg("Minimum page size is 1");
+    } else if (newPageSize > 100) {
+      setError(true);
+      setErrorMsg("Maximum page size is 100");
+    } else {
       dispatch(
         setNumber({
           key: "pageSize",
@@ -32,8 +37,6 @@ export const MainPageTemplate: React.FC<Props> = ({ data }) => {
         })
       );
       setError(false);
-    } else {
-      setError(true);
     }
   };
   const handleClose = () => {
@@ -49,14 +52,15 @@ export const MainPageTemplate: React.FC<Props> = ({ data }) => {
           inputKey="pageSize"
           ref={pagesizeInputRef}
           error={error}
+          onChange={getValues}
         />
-        <Button onClick={getValues} variant="contained" color="primary">
+        {/* <Button onClick={getValues} variant="contained" color="primary">
           Go!
-        </Button>
+        </Button> */}
         <CustomSnackBar
           anchorOrigin={{ horizontal: "center", vertical: "top" }}
           open={error}
-          message="Maximum page size is 100"
+          message={errorMsg}
           onClose={handleClose}
         />
       </div>
