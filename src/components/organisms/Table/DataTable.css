@@ -1,4 +1,33 @@
+table.MuiTable-root {
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(66, 68, 90, 0.43);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(66, 68, 90, 0.43);
+  box-shadow: 0px 0px 25px 0px rgba(66, 68, 90, 0.43);
+}
+
 div.MuiTablePagination-input,
 p.MuiTablePagination-selectLabel {
   display: none;
+}
+.MuiTableHead-root,
+.MuiTableRow-root:not(:last-child) {
+  border-bottom: 1px solid rgb(92, 97, 188, 0.5);
+}
+
+td.MuiTableCell-root {
+  border-bottom: none;
+}
+
+tr {
+  width: 100%;
+}
+
+td {
+  width: 50%;
+}
+
+.MuiTablePagination-actions svg {
+  color: rgb(92, 97, 188, 1);
 }

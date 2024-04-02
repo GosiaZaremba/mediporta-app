@@ -9,7 +9,7 @@ interface ULRState {
 
 const initialState: ULRState = {
   pageNumber: 1,
-  pageSize: 10,
+  pageSize: 5,
   order: "desc",
   sortBy: "popular",
 };

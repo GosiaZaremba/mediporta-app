@@ -1,11 +1,14 @@
 import React from "react";
-import { SomeComponent } from "./components/pages/MainPage";
+import { MainPage } from "./components/pages/MainPage/MainPage";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { theme } from "./themes/theme";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <SomeComponent />
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <MainPage />
+    </ThemeProvider>
   );
 };
 

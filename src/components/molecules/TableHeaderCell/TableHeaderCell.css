@@ -1,0 +1,28 @@
+th.MuiTableCell-head {
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+}
+
+th.MuiTableCell-root span:first-child {
+  transition: all 200ms ease;
+}
+
+th.MuiTableCell-root span:first-child:hover {
+  cursor: pointer;
+  color: #5c61bc;
+}
+
+th.MuiTableCell-head div {
+  display: flex;
+}
+
+span.icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+}
+
+.underline {
+  color: #5c61bc;
+}
