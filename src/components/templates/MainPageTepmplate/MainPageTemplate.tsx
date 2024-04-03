@@ -9,6 +9,7 @@ import "./MainPageTemplate.css";
 import { useDispatch } from "react-redux";
 import { setNumber } from "../../../store/numberSlice";
 import { CustomSnackBar } from "../../atoms/CustomSnackBar/CustomSnackBar";
+import { useAppSelector } from "../../../hooks/storeHooks";
 
 export type Props = {
   data: Tag[] | null;
@@ -16,6 +17,8 @@ export type Props = {
 
 export const MainPageTemplate: React.FC<Props> = ({ data }) => {
   const dispatch = useDispatch();
+    const urlParams = useAppSelector((state) => state.URLparams);
+
   const [error, setError] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -53,6 +56,7 @@ export const MainPageTemplate: React.FC<Props> = ({ data }) => {
           ref={pagesizeInputRef}
           error={error}
           onChange={getValues}
+          defaultValue={urlParams['pageSize']}
         />
         {/* <Button onClick={getValues} variant="contained" color="primary">
           Go!
