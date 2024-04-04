@@ -1,10 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import numberReducer from "./numberSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import numberReducer from './urlParamsSlice';
 
 export const store = configureStore({
-  reducer: {
-    URLparams: numberReducer,
-  },
+	reducer: {
+		URLparams: numberReducer,
+	},
 });
 
 export type RootState = ReturnType<typeof store.getState>;
