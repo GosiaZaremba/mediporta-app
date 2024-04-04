@@ -1,23 +1,24 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CustomLabel } from "./CustomLabel";
+import { InputWLabel } from "./InputWLabel";
+import { Provider } from "react-redux";
+import { store } from "../../../store/store";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "../../../themes/theme";
 import { CssBaseline } from "@mui/material";
 
-const meta: Meta<typeof CustomLabel> = {
-  title: "/components/atoms/CustomLabel",
-  component: CustomLabel,
+const meta: Meta<typeof InputWLabel> = {
+  title: "/components/molecules/InputWLabel",
+  component: InputWLabel,
   decorators: [
-    (Story) => {
-      return (
-        <ThemeProvider theme={theme}>
+    (Story) => (
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
           <CssBaseline />
-
           <Story />
-        </ThemeProvider>
-      );
-    },
+        </Provider>
+      </ThemeProvider>
+    ),
   ],
   argTypes: {
     inputLabel: { control: "text" },
@@ -26,11 +27,10 @@ const meta: Meta<typeof CustomLabel> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof CustomLabel>;
+type Story = StoryObj<typeof InputWLabel>;
 
 export const Default: Story = {
   args: {
     inputLabel: "Input Label",
-    inputKey: "inputKey",
   },
 };

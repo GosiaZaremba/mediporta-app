@@ -1,15 +1,15 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CustomSnackBar } from "./CustomSnackBar";
+import { MainPage } from "./MainPage";
 import { Provider } from "react-redux";
 import { store } from "../../../store/store";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "../../../themes/theme";
 import { CssBaseline } from "@mui/material";
 
-const meta: Meta<typeof CustomSnackBar> = {
-  title: "/components/atoms/CustomSnackBar",
-  component: CustomSnackBar,
+const meta: Meta<typeof MainPage> = {
+  title: "/components/pages/MainPage",
+  component: MainPage,
   decorators: [
     (Story) => {
       return (
@@ -23,18 +23,22 @@ const meta: Meta<typeof CustomSnackBar> = {
     },
   ],
   argTypes: {
-    open: { control: "boolean" },
-    message: { control: "text" },
+    data: { control: "object" },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof CustomSnackBar>;
+type Story = StoryObj<typeof MainPage>;
 
 export const Default: Story = {
   args: {
-    anchorOrigin: { vertical: "top", horizontal: "center" },
-    open: true,
-    message: "SnackBar Message",
+    data: [
+      { name: "Some name", count: 123 },
+      { name: "Some name", count: 123 },
+      { name: "Some name", count: 123 },
+      { name: "Some name", count: 123 },
+      { name: "Some name", count: 123 },
+      { name: "Some name", count: 123 },
+    ],
   },
 };

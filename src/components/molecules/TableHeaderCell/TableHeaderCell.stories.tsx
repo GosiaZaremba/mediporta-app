@@ -1,15 +1,15 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CustomSnackBar } from "./CustomSnackBar";
+import { TableHeaderCell } from "./TableHeaderCell";
 import { Provider } from "react-redux";
 import { store } from "../../../store/store";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "../../../themes/theme";
 import { CssBaseline } from "@mui/material";
 
-const meta: Meta<typeof CustomSnackBar> = {
-  title: "/components/atoms/CustomSnackBar",
-  component: CustomSnackBar,
+const meta: Meta<typeof TableHeaderCell> = {
+  title: "/components/molecules/TableHeaderCell",
+  component: TableHeaderCell,
   decorators: [
     (Story) => {
       return (
@@ -22,19 +22,14 @@ const meta: Meta<typeof CustomSnackBar> = {
       );
     },
   ],
-  argTypes: {
-    open: { control: "boolean" },
-    message: { control: "text" },
-  },
+  argTypes: {},
 };
 
 export default meta;
-type Story = StoryObj<typeof CustomSnackBar>;
+type Story = StoryObj<typeof TableHeaderCell>;
 
 export const Default: Story = {
   args: {
-    anchorOrigin: { vertical: "top", horizontal: "center" },
-    open: true,
-    message: "SnackBar Message",
+    cellName: "Cell Name",
   },
 };
