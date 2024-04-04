@@ -1,11 +1,11 @@
 svg:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 svg.sorting-icon {
-  transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 
 .rotated {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }

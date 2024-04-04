@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export type Props = {
-  inputLabel: string;
-  inputKey: string;
+	inputLabel: string;
+	inputKey: string;
 };
 
 export const CustomLabel: React.FC<Props> = ({ inputLabel, inputKey }) => {
-  return <label htmlFor={inputKey}>{inputLabel}</label>;
+	return <label htmlFor={inputKey}>{inputLabel}</label>;
 };
